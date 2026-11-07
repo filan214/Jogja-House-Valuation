@@ -1,0 +1,126 @@
+{
+  "generated": "2026-11-08",
+  "n_rows": 30,
+  "n_skipped": 0,
+  "date_seen": [
+    "2026-11-08",
+    "2026-11-08"
+  ],
+  "adjustment": null,
+  "overall": [
+    {
+      "prices": "2024 prices (unadjusted)",
+      "n": 30,
+      "mape": 32.81427637170206,
+      "mdape": 26.46745811027668,
+      "coverage": 70.0,
+      "mean_signed_error": -0.19058148103785869,
+      "median_signed_error": -6.172777652173913
+    },
+    {
+      "prices": "Adjusted",
+      "n": 30,
+      "mape": 32.81427637170206,
+      "mdape": 26.46745811027668,
+      "coverage": 70.0,
+      "mean_signed_error": -0.19058148103785869,
+      "median_signed_error": -6.172777652173913
+    }
+  ],
+  "by_kabupaten": [
+    {
+      "kabupaten": "Kota Yogyakarta",
+      "n": 6,
+      "mape_unadjusted": 46.08804064197696,
+      "mape_adjusted": 46.08804064197696,
+      "coverage_adjusted": 66.66666666666666,
+      "mean_signed_error_adjusted": -30.713274530865846,
+      "small_n": false
+    },
+    {
+      "kabupaten": "Sleman",
+      "n": 12,
+      "mape_unadjusted": 23.30203302731523,
+      "mape_adjusted": 23.30203302731523,
+      "coverage_adjusted": 75.0,
+      "mean_signed_error_adjusted": -10.280582345563127,
+      "small_n": false
+    },
+    {
+      "kabupaten": "Bantul",
+      "n": 6,
+      "mape_unadjusted": 29.657941865252308,
+      "mape_adjusted": 29.657941865252308,
+      "coverage_adjusted": 66.66666666666666,
+      "mean_signed_error_adjusted": 25.542756763803027,
+      "small_n": false
+    },
+    {
+      "kabupaten": "Kulon Progo",
+      "n": 3,
+      "mape_unadjusted": 22.88767561161616,
+      "mape_adjusted": 22.88767561161616,
+      "coverage_adjusted": 100.0,
+      "mean_signed_error_adjusted": 13.377381600505052,
+      "small_n": true
+    },
+    {
+      "kabupaten": "Gunungkidul",
+      "n": 3,
+      "mape_unadjusted": 60.55499098168499,
+      "mape_adjusted": 60.55499098168499,
+      "coverage_adjusted": 33.33333333333333,
+      "mean_signed_error_adjusted": 36.18016850549451,
+      "small_n": true
+    }
+  ],
+  "by_price_band": [
+    {
+      "band": "< 500 jt",
+      "n": 4,
+      "mape": 58.54172684830387,
+      "median_signed_error": 37.01009619843924,
+      "coverage": 25.0
+    },
+    {
+      "band": "500 jt\u20131 M",
+      "n": 10,
+      "mape": 30.520424099605417,
+      "median_signed_error": 20.116137763636363,
+      "coverage": 90.0
+    },
+    {
+      "band": "1\u20132 M",
+      "n": 5,
+      "mape": 11.601869260016096,
+      "median_signed_error": -5.509590924369748,
+      "coverage": 100.0
+    },
+    {
+      "band": "2\u20135 M",
+      "n": 5,
+      "mape": 26.01631079867924,
+      "median_signed_error": -30.601443839999998,
+      "coverage": 60.0
+    },
+    {
+      "band": "> 5 M",
+      "n": 6,
+      "mape": 42.827707078052555,
+      "median_signed_error": -33.36425583333333,
+      "coverage": 50.0
+    }
+  ],
+  "findings": [
+    "No price index factor is set, so adjusted = unadjusted (2024 prices)."
+  ],
+  "data_checks": {
+    "missing": {
+      "bedrooms": 0,
+      "bathrooms": 0,
+      "carport": 8
+    },
+    "duplicate_urls": 0
+  },
+  "skipped": []
+}

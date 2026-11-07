@@ -1,0 +1,581 @@
+{
+  "trained_on": "2026-11-07",
+  "data_source": "Kaggle pramudyadika/yogyakarta-housing-price-ndonesia (Rumah123)",
+  "data_date_range": [
+    "2024-03-20",
+    "2024-05-21"
+  ],
+  "n_rows": 1180,
+  "n_kecamatan": 43,
+  "target": "log(price_idr)",
+  "random_state": 42,
+  "cv": {
+    "n_splits": 5,
+    "spatial": "GroupKFold by kecamatan_code",
+    "random": "KFold shuffle"
+  },
+  "chosen": {
+    "ridge": {
+      "name": "Ridge alpha=10",
+      "alpha": 10.0
+    },
+    "lgbm": {
+      "name": "LightGBM leaves=7 min_child=10",
+      "objective": "regression",
+      "n_estimators": 600,
+      "learning_rate": 0.03,
+      "subsample": 0.8,
+      "subsample_freq": 1,
+      "colsample_bytree": 0.8,
+      "reg_lambda": 1.0,
+      "random_state": 42,
+      "verbose": -1,
+      "num_leaves": 7,
+      "min_child_samples": 10
+    },
+    "best_overall": "LightGBM leaves=7 min_child=10"
+  },
+  "cv_metrics": {
+    "B0 baseline": {
+      "spatial": {
+        "mae_mean": 751018702.686543,
+        "mae_std": 331298455.8066229,
+        "mape_mean": 46.13078799742777,
+        "mape_std": 6.696452648809169,
+        "mdape_mean": 36.28683723490103,
+        "mdape_std": 1.9156770216829784,
+        "r2_log_mean": 0.5325267899223934,
+        "r2_log_std": 0.07713433727364549
+      },
+      "random": {
+        "mae_mean": 665630617.8438851,
+        "mae_std": 103150596.86312388,
+        "mape_mean": 42.096250285284654,
+        "mape_std": 2.087264594248949,
+        "mdape_mean": 30.284823294999637,
+        "mdape_std": 1.4333892579353187,
+        "r2_log_mean": 0.654712709685807,
+        "r2_log_std": 0.020265997457714582
+      }
+    },
+    "Ridge alpha=0.1": {
+      "spatial": {
+        "mae_mean": 493882929.09314144,
+        "mae_std": 162743069.77973095,
+        "mape_mean": 29.04767596495414,
+        "mape_std": 2.680901795802841,
+        "mdape_mean": 20.835201830202784,
+        "mdape_std": 1.0620056134150815,
+        "r2_log_mean": 0.7948417142971391,
+        "r2_log_std": 0.03202052729553731
+      },
+      "random": {
+        "mae_mean": 474948477.7502098,
+        "mae_std": 51378864.545860484,
+        "mape_mean": 27.201412827236176,
+        "mape_std": 1.4416163133477553,
+        "mdape_mean": 20.182584550822476,
+        "mdape_std": 1.1846974761974258,
+        "r2_log_mean": 0.8231117818070374,
+        "r2_log_std": 0.018009086810680357
+      }
+    },
+    "Ridge alpha=1": {
+      "spatial": {
+        "mae_mean": 492526526.2609698,
+        "mae_std": 164777680.64320728,
+        "mape_mean": 28.973001711652536,
+        "mape_std": 2.6408729495673757,
+        "mdape_mean": 20.883814770134745,
+        "mdape_std": 1.0045988151614822,
+        "r2_log_mean": 0.7962799745962872,
+        "r2_log_std": 0.032469718820034965
+      },
+      "random": {
+        "mae_mean": 474864997.4196631,
+        "mae_std": 51630376.18067107,
+        "mape_mean": 27.20061666735876,
+        "mape_std": 1.455197205022841,
+        "mdape_mean": 20.235489927168157,
+        "mdape_std": 1.278253142285949,
+        "r2_log_mean": 0.8232046975956819,
+        "r2_log_std": 0.01828674661147775
+      }
+    },
+    "Ridge alpha=10": {
+      "spatial": {
+        "mae_mean": 489609041.29035664,
+        "mae_std": 164836139.2080609,
+        "mape_mean": 28.91443973083982,
+        "mape_std": 2.736507927431908,
+        "mdape_mean": 21.373505736107376,
+        "mdape_std": 1.174379426517916,
+        "r2_log_mean": 0.7972774261248567,
+        "r2_log_std": 0.03371470690358851
+      },
+      "random": {
+        "mae_mean": 474180853.57286847,
+        "mae_std": 52360568.43855713,
+        "mape_mean": 27.244728152799773,
+        "mape_std": 1.6054602350747282,
+        "mdape_mean": 20.181720009761715,
+        "mdape_std": 1.1557997857281057,
+        "r2_log_mean": 0.8231316617420047,
+        "r2_log_std": 0.018567574508089164
+      }
+    },
+    "LightGBM leaves=7 min_child=10": {
+      "spatial": {
+        "mae_mean": 487040411.33779716,
+        "mae_std": 191453226.50293824,
+        "mape_mean": 25.62039407716461,
+        "mape_std": 3.212623090877148,
+        "mdape_mean": 19.4590831862101,
+        "mdape_std": 3.798449323173375,
+        "r2_log_mean": 0.8090144401072912,
+        "r2_log_std": 0.0332300869063427
+      },
+      "random": {
+        "mae_mean": 438391374.040094,
+        "mae_std": 52588178.6229975,
+        "mape_mean": 24.22624167814977,
+        "mape_std": 1.3459756829577227,
+        "mdape_mean": 16.682084494422607,
+        "mdape_std": 1.4120130963690918,
+        "r2_log_mean": 0.8519084918046176,
+        "r2_log_std": 0.008512904613049738
+      }
+    },
+    "LightGBM leaves=7 min_child=20": {
+      "spatial": {
+        "mae_mean": 499370429.8892128,
+        "mae_std": 207927656.92053872,
+        "mape_mean": 25.99576451142468,
+        "mape_std": 3.491543041403548,
+        "mdape_mean": 19.328435386562987,
+        "mdape_std": 4.387713417233138,
+        "r2_log_mean": 0.8023938355058423,
+        "r2_log_std": 0.043165083264897396
+      },
+      "random": {
+        "mae_mean": 428169055.7356979,
+        "mae_std": 54978858.216889806,
+        "mape_mean": 24.11280835172878,
+        "mape_std": 1.2128647428633557,
+        "mdape_mean": 16.601530951058002,
+        "mdape_std": 1.431404396027512,
+        "r2_log_mean": 0.8541146281131461,
+        "r2_log_std": 0.007573317093761515
+      }
+    },
+    "LightGBM leaves=7 min_child=40": {
+      "spatial": {
+        "mae_mean": 508273223.1393775,
+        "mae_std": 209290865.69874668,
+        "mape_mean": 26.424589289332964,
+        "mape_std": 2.943330900933998,
+        "mdape_mean": 20.042340986716816,
+        "mdape_std": 4.075299428556032,
+        "r2_log_mean": 0.7988462730230907,
+        "r2_log_std": 0.045810710512130697
+      },
+      "random": {
+        "mae_mean": 447058673.8132795,
+        "mae_std": 56924927.105657406,
+        "mape_mean": 24.631702228031166,
+        "mape_std": 1.3233869333154007,
+        "mdape_mean": 17.324211545543466,
+        "mdape_std": 0.8328377641985943,
+        "r2_log_mean": 0.8477900208886178,
+        "r2_log_std": 0.004904294499444201
+      }
+    },
+    "LightGBM leaves=15 min_child=10": {
+      "spatial": {
+        "mae_mean": 500269178.16577804,
+        "mae_std": 189617937.2433731,
+        "mape_mean": 26.11548279867506,
+        "mape_std": 3.4416021929458043,
+        "mdape_mean": 19.550562850377627,
+        "mdape_std": 4.161947940321541,
+        "r2_log_mean": 0.8032591434015375,
+        "r2_log_std": 0.03560919888718365
+      },
+      "random": {
+        "mae_mean": 427132984.6145315,
+        "mae_std": 48547575.621936604,
+        "mape_mean": 23.47403462231951,
+        "mape_std": 0.8811162861639614,
+        "mdape_mean": 15.739016543472127,
+        "mdape_std": 1.1766114624127535,
+        "r2_log_mean": 0.8564083859001057,
+        "r2_log_std": 0.005361245583059127
+      }
+    },
+    "LightGBM leaves=15 min_child=20": {
+      "spatial": {
+        "mae_mean": 499062441.09123576,
+        "mae_std": 201560101.8382844,
+        "mape_mean": 26.12568060701053,
+        "mape_std": 3.3242457641286083,
+        "mdape_mean": 19.958110129476363,
+        "mdape_std": 3.939792820162652,
+        "r2_log_mean": 0.8000046203083173,
+        "r2_log_std": 0.039523059068904666
+      },
+      "random": {
+        "mae_mean": 422997676.0442885,
+        "mae_std": 54523635.48332651,
+        "mape_mean": 23.57153697278499,
+        "mape_std": 0.87710340260177,
+        "mdape_mean": 16.03862237630139,
+        "mdape_std": 0.618650477122068,
+        "r2_log_mean": 0.8556003471667853,
+        "r2_log_std": 0.006828394461342352
+      }
+    },
+    "LightGBM leaves=15 min_child=40": {
+      "spatial": {
+        "mae_mean": 507306591.56999034,
+        "mae_std": 199903705.52496898,
+        "mape_mean": 26.643730465403877,
+        "mape_std": 3.1943924096367002,
+        "mdape_mean": 19.883518324346205,
+        "mdape_std": 4.339745276534854,
+        "r2_log_mean": 0.7987152838723569,
+        "r2_log_std": 0.03984445293669511
+      },
+      "random": {
+        "mae_mean": 437673502.799376,
+        "mae_std": 57531022.45083215,
+        "mape_mean": 23.934012633635632,
+        "mape_std": 0.9400862215475555,
+        "mdape_mean": 17.081487652170825,
+        "mdape_std": 1.2552619631969522,
+        "r2_log_mean": 0.8529031039662179,
+        "r2_log_std": 0.006029529415329894
+      }
+    },
+    "LightGBM leaves=31 min_child=10": {
+      "spatial": {
+        "mae_mean": 505437028.86461496,
+        "mae_std": 182848591.55972347,
+        "mape_mean": 26.28423900787397,
+        "mape_std": 3.056618794941727,
+        "mdape_mean": 19.990592209573553,
+        "mdape_std": 3.0413988378140204,
+        "r2_log_mean": 0.7975914457754738,
+        "r2_log_std": 0.033429152713233
+      },
+      "random": {
+        "mae_mean": 429347088.1603619,
+        "mae_std": 41989065.99383634,
+        "mape_mean": 23.5937162516582,
+        "mape_std": 0.5935264839215468,
+        "mdape_mean": 15.44305888987834,
+        "mdape_std": 0.7859118051005038,
+        "r2_log_mean": 0.853067507115869,
+        "r2_log_std": 0.005182945697852727
+      }
+    },
+    "LightGBM leaves=31 min_child=20": {
+      "spatial": {
+        "mae_mean": 503826188.4773022,
+        "mae_std": 201921533.14917254,
+        "mape_mean": 26.23803768216976,
+        "mape_std": 3.177207947526028,
+        "mdape_mean": 19.51503494425316,
+        "mdape_std": 4.3582081401862585,
+        "r2_log_mean": 0.7938966827559866,
+        "r2_log_std": 0.04111482098895335
+      },
+      "random": {
+        "mae_mean": 425980224.4618849,
+        "mae_std": 52298239.394662954,
+        "mape_mean": 23.706379341630402,
+        "mape_std": 0.7604681679831393,
+        "mdape_mean": 15.628332017845977,
+        "mdape_std": 0.6034188915406677,
+        "r2_log_mean": 0.8526370848187448,
+        "r2_log_std": 0.0057158009205178365
+      }
+    },
+    "LightGBM leaves=31 min_child=40": {
+      "spatial": {
+        "mae_mean": 506761300.25324667,
+        "mae_std": 200079120.24395645,
+        "mape_mean": 26.62004479489612,
+        "mape_std": 3.001521716524453,
+        "mdape_mean": 19.740486331908464,
+        "mdape_std": 4.050261051347506,
+        "r2_log_mean": 0.7990857371042809,
+        "r2_log_std": 0.04089373809669036
+      },
+      "random": {
+        "mae_mean": 437720568.5527539,
+        "mae_std": 57826895.45089598,
+        "mape_mean": 23.92538681020364,
+        "mape_std": 0.9050583208969747,
+        "mdape_mean": 16.968591875472868,
+        "mdape_std": 0.9889419940252739,
+        "r2_log_mean": 0.853032241500561,
+        "r2_log_std": 0.006278705490160945
+      }
+    }
+  },
+  "training_ranges": {
+    "land_m2": {
+      "min": 36.0,
+      "max": 4222.0
+    },
+    "building_m2": {
+      "min": 23.0,
+      "max": 1000.0
+    },
+    "bedrooms": {
+      "min": 1.0,
+      "max": 9.0
+    },
+    "bathrooms": {
+      "min": 1.0,
+      "max": 8.0
+    },
+    "carport": {
+      "min": 0.0,
+      "max": 15.0
+    }
+  },
+  "active_flags": [
+    "flag_shm",
+    "flag_ready",
+    "flag_new",
+    "flag_near_campus",
+    "flag_two_floor",
+    "flag_complex",
+    "flag_furnished",
+    "flag_pool"
+  ],
+  "kabupaten_order": [
+    "Kota Yogyakarta",
+    "Sleman",
+    "Bantul",
+    "Kulon Progo",
+    "Gunungkidul"
+  ],
+  "feature_columns_file": "feature_columns.json",
+  "quantile": {
+    "quantiles": [
+      0.1,
+      0.5,
+      0.9
+    ],
+    "models": {
+      "q10": "lgbm_q10.txt",
+      "q50": "lgbm_q50.txt",
+      "q90": "lgbm_q90.txt"
+    },
+    "params": {
+      "objective": "quantile",
+      "n_estimators": 600,
+      "learning_rate": 0.03,
+      "subsample": 0.8,
+      "subsample_freq": 1,
+      "colsample_bytree": 0.8,
+      "reg_lambda": 1.0,
+      "random_state": 42,
+      "verbose": -1,
+      "num_leaves": 7,
+      "min_child_samples": 10
+    },
+    "crossing_fix": "sort per row",
+    "calibration_factor": 1.32,
+    "suggested_calibration_factor": 1.32,
+    "nested_calibration_check": {
+      "factors": [
+        1.29,
+        1.4,
+        1.36,
+        1.26,
+        1.35
+      ],
+      "coverage_mean": 80.16949152542372,
+      "coverage_std": 8.337880594067007,
+      "coverage_by_fold": [
+        74.15254237288136,
+        89.40677966101694,
+        85.16949152542372,
+        69.0677966101695,
+        83.05084745762711
+      ]
+    },
+    "coverage_target": [
+      0.75,
+      0.85
+    ],
+    "cv": {
+      "spatial": {
+        "coverage_mean": 80.08474576271188,
+        "below_low_mean": 8.305084745762713,
+        "above_high_mean": 11.610169491525424,
+        "width_mean_mean": 88.24548002876884,
+        "width_median_mean": 81.79431836690102,
+        "point_outside_mean": 0.3389830508474576,
+        "coverage_std": 6.93673963718004,
+        "below_low_std": 2.152275440542422,
+        "above_high_std": 6.1739483808657605,
+        "width_mean_std": 7.9323149210184605,
+        "width_median_std": 9.636037559631696,
+        "point_outside_std": 0.46417165890268314,
+        "crossed_rows": 16,
+        "raw_coverage_all": 68.72881355932203
+      },
+      "random": {
+        "coverage_mean": 81.52542372881356,
+        "below_low_mean": 8.728813559322035,
+        "above_high_mean": 9.745762711864407,
+        "width_mean_mean": 83.14754565599995,
+        "width_median_mean": 78.96137939063763,
+        "point_outside_mean": 0.5084745762711865,
+        "coverage_std": 3.5779375987431488,
+        "below_low_std": 3.725441464463266,
+        "above_high_std": 2.3014365447458083,
+        "width_mean_std": 3.1698436636688467,
+        "width_median_std": 4.273213386447257,
+        "point_outside_std": 0.5524747801019194,
+        "crossed_rows": 24,
+        "raw_coverage_all": 69.32203389830508
+      }
+    },
+    "coverage_by_kabupaten_spatial": [
+      {
+        "kabupaten": "Bantul",
+        "n": 172,
+        "coverage": 80.23255813953489,
+        "width": 76.56265435775278
+      },
+      {
+        "kabupaten": "Gunungkidul",
+        "n": 6,
+        "coverage": 50.0,
+        "width": 64.49660591134499
+      },
+      {
+        "kabupaten": "Kota Yogyakarta",
+        "n": 122,
+        "coverage": 75.40983606557377,
+        "width": 104.47891604183472
+      },
+      {
+        "kabupaten": "Kulon Progo",
+        "n": 26,
+        "coverage": 96.15384615384616,
+        "width": 52.56372070526701
+      },
+      {
+        "kabupaten": "Sleman",
+        "n": 854,
+        "coverage": 80.44496487119439,
+        "width": 89.53258284953732
+      }
+    ]
+  },
+  "range_scales": {
+    "target_coverage": 0.8,
+    "min_rows_for_kabupaten": 40,
+    "cap": [
+      1.0,
+      2.0
+    ],
+    "global_scale": 1.32,
+    "by_kabupaten": {
+      "Kota Yogyakarta": 1.63,
+      "Sleman": 1.32,
+      "Bantul": 1.32,
+      "Kulon Progo": 1.32,
+      "Gunungkidul": 1.32
+    },
+    "table": [
+      {
+        "kabupaten": "Kota Yogyakarta",
+        "n": 122,
+        "source": "own",
+        "coverage_raw": 62.295081967213115,
+        "coverage_before": 75.40983606557377,
+        "scale": 1.63,
+        "coverage_after": 80.32786885245902,
+        "width_before": 104.47891604183472,
+        "width_after": 134.2292568592586
+      },
+      {
+        "kabupaten": "Sleman",
+        "n": 854,
+        "source": "own",
+        "coverage_raw": 69.3208430913349,
+        "coverage_before": 80.44496487119439,
+        "scale": 1.32,
+        "coverage_after": 80.44496487119439,
+        "width_before": 89.53258284953732,
+        "width_after": 89.53258284953732
+      },
+      {
+        "kabupaten": "Bantul",
+        "n": 172,
+        "source": "own",
+        "coverage_raw": 69.18604651162791,
+        "coverage_before": 80.23255813953489,
+        "scale": 1.32,
+        "coverage_after": 80.23255813953489,
+        "width_before": 76.56265435775278,
+        "width_after": 76.56265435775278
+      },
+      {
+        "kabupaten": "Kulon Progo",
+        "n": 26,
+        "source": "global",
+        "coverage_raw": 80.76923076923077,
+        "coverage_before": 96.15384615384616,
+        "scale": 1.32,
+        "coverage_after": 96.15384615384616,
+        "width_before": 52.56372070526701,
+        "width_after": 52.56372070526701
+      },
+      {
+        "kabupaten": "Gunungkidul",
+        "n": 6,
+        "source": "global",
+        "coverage_raw": 50.0,
+        "coverage_before": 50.0,
+        "scale": 1.32,
+        "coverage_after": 50.0,
+        "width_before": 64.49660591134499,
+        "width_after": 64.49660591134499
+      }
+    ],
+    "spatial_after": {
+      "coverage_all": 80.59322033898304,
+      "coverage_mean": 80.59322033898304,
+      "coverage_std": 7.180922089598257,
+      "width_mean": 91.32136272345163,
+      "width_median": 83.47785865233563
+    },
+    "nested_check": {
+      "coverage_mean": 79.91525423728814,
+      "coverage_std": 9.785291978166029,
+      "coverage_by_fold": [
+        70.76271186440678,
+        91.10169491525424,
+        86.01694915254238,
+        68.64406779661016,
+        83.05084745762711
+      ],
+      "coverage_by_kabupaten": {
+        "Kota Yogyakarta": 81.14754098360656,
+        "Sleman": 79.85948477751757,
+        "Bantul": 77.90697674418605,
+        "Kulon Progo": 96.15384615384616,
+        "Gunungkidul": 50.0
+      }
+    },
+    "note": "coverage_after is measured on the OOF predictions used to choose the scales (optimistic); nested_check chooses on 4 folds and tests on the 5th."
+  }
+}

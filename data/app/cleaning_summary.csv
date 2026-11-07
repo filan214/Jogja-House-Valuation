@@ -1,0 +1,14 @@
+drop_reason,rows,label,share_of_raw_pct
+_raw,2020,Raw listings,100.0
+_clean,1180,Listings used by the model,58.4
+dup_near,474,Repost of the same house (near-duplicate),23.5
+kos,147,Boarding house (kos),7.3
+kecamatan_unmatched,129,Location could not be matched to a kecamatan,6.4
+non_residential,60,"Commercial, apartment or land with small building",3.0
+price_is_dp,9,Price field is a down payment,0.4
+price_out_of_range,7,Price outside Rp 100 jt – 25 M,0.3
+land_title,6,Land listing (title starts with “Tanah”),0.3
+building_out_of_range,4,"Building area outside 15–2,000 m²",0.2
+building_land_ratio_out_of_range,2,Building more than 3× land area,0.1
+land_only,1,No building area,0.0
+price_per_land_out_of_range,1,Price per land m² outside Rp 1–40 jt,0.0

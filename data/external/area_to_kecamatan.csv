@@ -1,0 +1,67 @@
+area_raw,kabupaten_raw,kecamatan,kabupaten,match_type,n_listings,needs_review,note
+Ngaglik,Sleman,Ngaglik,Sleman,auto,197,False,
+Depok,Sleman,Depok,Sleman,auto,119,False,
+Kalasan,Sleman,Kalasan,Sleman,auto,77,False,
+Mlati,Sleman,Mlati,Sleman,auto,77,False,
+Gamping,Sleman,Gamping,Sleman,auto,71,False,
+Ngemplak,Sleman,Ngemplak,Sleman,auto,59,False,
+Banguntapan,Bantul,Banguntapan,Bantul,auto,57,False,
+Kasihan,Bantul,Kasihan,Bantul,auto,43,False,
+Godean,Sleman,Godean,Sleman,auto,32,False,
+Umbulharjo,Yogyakarta,Umbulharjo,Kota Yogyakarta,auto,31,False,
+Sedayu,Bantul,Sedayu,Bantul,auto,26,False,
+Wirobrajan,Yogyakarta,Wirobrajan,Kota Yogyakarta,auto,18,False,
+Berbah,Sleman,Berbah,Sleman,auto,17,False,
+Prambanan,Sleman,Prambanan,Sleman,auto,15,False,
+Sewon,Bantul,Sewon,Bantul,auto,15,False,
+Gondokusuman,Yogyakarta,Gondokusuman,Kota Yogyakarta,auto,14,False,
+Kotagede,Yogyakarta,Kotagede,Kota Yogyakarta,auto,12,False,
+Mantrijeron,Yogyakarta,Mantrijeron,Kota Yogyakarta,auto,11,False,
+Jetis,Bantul,Jetis,Bantul,auto,10,False,
+Pakem,Sleman,Pakem,Sleman,auto,9,False,
+Sentolo,Kulon Progo,Sentolo,Kulon Progo,auto,9,False,
+Kraton,Yogyakarta,Kraton,Kota Yogyakarta,auto,8,False,
+Tegalrejo,Yogyakarta,Tegalrejo,Kota Yogyakarta,auto,7,False,
+Danurejan,Yogyakarta,Danurejan,Kota Yogyakarta,auto,6,False,
+Turi,Sleman,Turi,Sleman,auto,6,False,
+Pajangan,Bantul,Pajangan,Bantul,auto,5,False,
+Wonosari,Gunung Kidul,Wonosari,Gunungkidul,auto,5,False,
+Gondomanan,Yogyakarta,Gondomanan,Kota Yogyakarta,auto,4,False,
+Tempel,Sleman,Tempel,Sleman,auto,4,False,
+Wates,Kulon Progo,Wates,Kulon Progo,auto,4,False,
+Moyudan,Sleman,Moyudan,Sleman,auto,3,False,
+Pandak,Bantul,Pandak,Bantul,auto,3,False,
+Gedong Tengen,Yogyakarta,Gedong Tengen,Kota Yogyakarta,auto,2,False,
+Mergangsan,Yogyakarta,Mergangsan,Kota Yogyakarta,auto,2,False,
+Nanggulan,Kulon Progo,Nanggulan,Kulon Progo,auto,2,False,
+Piyungan,Bantul,Piyungan,Bantul,auto,2,False,
+Bambanglipuro,Bantul,Bambang Lipuro,Bantul,auto,1,False,
+Imogiri,Bantul,Imogiri,Bantul,auto,1,False,
+Minggir,Sleman,Minggir,Sleman,auto,1,False,
+Playen,Gunung Kidul,Playen,Gunungkidul,auto,1,False,
+Sleman,Sleman,,,manual,62,False,"Area equals a kabupaten name: may mean the whole kabupaten, not this kecamatan. Reviewed 2026-11-07 (Filan): dropped — area is only the kabupaten name; titles point all over Sleman."
+Bantul,Bantul,,,manual,24,False,"Area equals a kabupaten name: may mean the whole kabupaten, not this kecamatan. Reviewed 2026-11-07 (Filan): dropped — area is only the kabupaten name; titles point all over Bantul."
+Jetis,Yogyakarta,Jetis,Kota Yogyakarta,auto,9,False,Kabupaten part 'Yogyakarta' is ambiguous and the name also exists in Jetis (Bantul). Reviewed 2026-11-07 (Filan): accepted.
+Imogiri,Yogyakarta,Imogiri,Bantul,auto_corrected,1,False,Kabupaten part 'Yogyakarta' corrected to Bantul.
+Sleman,Yogyakarta,,,manual,35,False,"Kabupaten part 'Yogyakarta' corrected to Sleman. Area equals a kabupaten name: may mean the whole kabupaten, not this kecamatan. Reviewed 2026-11-07 (Filan): dropped — area is only the kabupaten name; titles point all over Sleman."
+Bantul,Yogyakarta,,,manual,5,False,"Kabupaten part 'Yogyakarta' corrected to Bantul. Area equals a kabupaten name: may mean the whole kabupaten, not this kecamatan. Reviewed 2026-11-07 (Filan): dropped — area is only the kabupaten name; titles point all over Bantul."
+Maguwoharjo,Yogyakarta,Depok,Sleman,suggested,58,False,Official desa/kelurahan 'Maguwoharjo' (3404070002) is in kecamatan Depok. Kabupaten part 'Yogyakarta' would change to Sleman. Reviewed 2026-11-07 (Filan): accepted.
+Condong Catur,Sleman,Depok,Sleman,suggested,27,False,Official desa/kelurahan 'Condong Catur' (3404070003) is in kecamatan Depok. Reviewed 2026-11-07 (Filan): accepted.
+Purwomartani,Sleman,Kalasan,Sleman,suggested,27,False,Official desa/kelurahan 'Purwo Martani' (3404100001) is in kecamatan Kalasan. Reviewed 2026-11-07 (Filan): accepted.
+Kaliurang,Sleman,Ngaglik,Sleman,suggested,14,False,"General knowledge, not official data. Usually 'Jl. Kaliurang' corridor: titles cite km 4–14 (km ~8–14 = Ngaglik; km 4–7 = Depok/Mlati). Villa listings in the Kaliurang resort itself are in Pakem. Reviewed 2026-11-07 (Filan): accepted."
+Sayegan,Sleman,Seyegan,Sleman,suggested,11,False,Spelling variant of official kecamatan 'Seyegan' (similarity 0.86). Reviewed 2026-11-07 (Filan): accepted.
+Kulonprogo,Kulon Progo,Sentolo,Kulon Progo,suggested,10,False,"General knowledge, not official data. Area is only the kabupaten name. 9 of 11 titles mention Sentolo (one development near the Sentolo toll exit). Reviewed 2026-11-07 (Filan): accepted."
+Plered,Bantul,Pleret,Bantul,suggested,8,False,Spelling variant of official kecamatan 'Pleret' (similarity 0.83). Reviewed 2026-11-07 (Filan): accepted.
+Cebongan,Sleman,Mlati,Sleman,suggested,7,False,"General knowledge, not official data. Pasar Cebongan is in desa Tlogoadi, Mlati; one title says 'Cebongan, Mlati'. Reviewed 2026-11-07 (Filan): accepted."
+Pogung,Yogyakarta,Mlati,Sleman,suggested,7,False,"General knowledge, not official data. Pogung (Kidul/Lor/Baru) is in desa Sinduadi, Mlati; titles also cite Palagan/Jongke. Reviewed 2026-11-07 (Filan): accepted."
+Kaliurang,Yogyakarta,Ngaglik,Sleman,suggested,6,False,"General knowledge, not official data. Usually 'Jl. Kaliurang' corridor: titles cite km 4–14 (km ~8–14 = Ngaglik; km 4–7 = Depok/Mlati). Villa listings in the Kaliurang resort itself are in Pakem. Reviewed 2026-11-07 (Filan): accepted."
+Caturtunggal,Sleman,Depok,Sleman,suggested,3,False,Official desa/kelurahan 'Catur Tunggal' (3404070001) is in kecamatan Depok. Reviewed 2026-11-07 (Filan): accepted.
+Seturan,Yogyakarta,Depok,Sleman,suggested,3,False,"General knowledge, not official data. Seturan is in desa Caturtunggal, Depok; titles say 'Seturan Depok Sleman'. Reviewed 2026-11-07 (Filan): accepted."
+Demangan,Yogyakarta,,,manual,2,False,"Official desa/kelurahan 'Demangan' (3471060002) is in kecamatan Gondokusuman. CONFLICT: both titles say 'Jogja Selatan' / 'dekat kampus UMY' (Kasihan, Bantul). Reviewed 2026-11-07 (Filan): dropped — titles contradict label (Jogja Selatan / near UMY)."
+Jombor,Sleman,Mlati,Sleman,suggested,2,False,"General knowledge, not official data. Jombor is in desa Sinduadi, Mlati. Reviewed 2026-11-07 (Filan): accepted."
+Nologaten,Yogyakarta,,,manual,2,False,"General knowledge, not official data. Nologaten is in desa Caturtunggal, Depok. CONFLICT: both titles mention Potorono/Banguntapan (Bantul). Reviewed 2026-11-07 (Filan): dropped — titles contradict label (Potorono/Banguntapan)."
+Caturtunggal,Yogyakarta,Depok,Sleman,suggested,1,False,Official desa/kelurahan 'Catur Tunggal' (3404070001) is in kecamatan Depok. Kabupaten part 'Yogyakarta' would change to Sleman. Reviewed 2026-11-07 (Filan): accepted.
+Cebongan,Yogyakarta,Mlati,Sleman,suggested,1,False,"General knowledge, not official data. Pasar Cebongan is in desa Tlogoadi, Mlati; one title says 'Cebongan, Mlati'. Reviewed 2026-11-07 (Filan): accepted."
+Kulonprogo,Yogyakarta,Sentolo,Kulon Progo,suggested,1,False,"General knowledge, not official data. Area is only the kabupaten name. 9 of 11 titles mention Sentolo (one development near the Sentolo toll exit). Reviewed 2026-11-07 (Filan): accepted."
+Purwomartani,Yogyakarta,Kalasan,Sleman,suggested,1,False,Official desa/kelurahan 'Purwo Martani' (3404100001) is in kecamatan Kalasan. Kabupaten part 'Yogyakarta' would change to Sleman. Reviewed 2026-11-07 (Filan): accepted.
+Sidoarum,Sleman,Godean,Sleman,suggested,1,False,Official desa/kelurahan 'Sidoarum' (3404040006) is in kecamatan Godean. Reviewed 2026-11-07 (Filan): accepted.

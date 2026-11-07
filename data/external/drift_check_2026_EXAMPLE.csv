@@ -1,0 +1,12 @@
+# FORMAT REFERENCE ONLY - never scored. Fill data/external/drift_check_2026.csv (same columns, no # lines).
+# The two rows below are made up to show the formats; they are not real listings.
+# date_seen: YYYY-MM-DD (day you saw the listing) | url: full listing URL (traceability only)
+# kabupaten: Kota Yogyakarta, Sleman, Bantul, Kulon Progo or Gunungkidul | kecamatan: official name as in the app dropdown
+# land_m2, building_m2: numbers > 0 (dot decimals) | bedrooms, bathrooms: whole numbers, empty if unknown | carport: whole number, empty = 0
+# road_name, road_km: optional (e.g. kaliurang, 8.5); not used by the current model (road km dropped in U1), kept for later analysis
+# flag_*: 1 if the listing text clearly says so, else 0 (SHM, ready to move in, new, near a campus, two floors, in a housing complex, furnished, pool)
+# asking_price_idr: whole Rupiah, no dots or "jt"/"M" (Rp 1,25 M = 1250000000)
+# Skip kos, land-only, rentals and apartments (same rules as P2).
+date_seen,url,kabupaten,kecamatan,land_m2,building_m2,bedrooms,bathrooms,carport,road_name,road_km,flag_shm,flag_ready,flag_new,flag_near_campus,flag_two_floor,flag_complex,flag_furnished,flag_pool,asking_price_idr
+2026-10-05,https://example.com/listing-1,Sleman,Depok,120,90,3,2,1,kaliurang,7.5,1,1,0,1,0,1,0,0,1250000000
+2026-10-06,https://example.com/listing-2,Bantul,Banguntapan,150,100,3,,0,,,1,0,1,0,1,0,0,0,875000000
