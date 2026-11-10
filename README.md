@@ -15,6 +15,22 @@ What makes it more than a generic house-price model:
 - **Ranges, not just a number:** an 80% likely range, calibrated per kabupaten, plus SHAP explanations and comparable listings.
 - **A staleness check:** the 2024 model is scored against 30 current 2026 listings.
 
+## The story behind it
+
+Jogja house prices are hard to judge. When I started, the only open data was 2,020 Rumah123 listings scraped in spring 2024. They were asking prices, not sale prices. Many were the same house posted again, some were boarding houses or shops, and locations were free text like "Kaliurang" or "Sleman, Sleman". The goal was a valuation app whose every number I could defend: an estimate, an honest range, the reasons behind it, and real listings to compare against.
+
+**Cleaning without guessing.** A wrong location would quietly corrupt both the features and the test, so I profiled every column before changing anything and wrote one rule per problem, each with a named reason for every row it dropped. Reposts alone were 474 rows, almost a quarter of the file. Area names were mapped to official kecamatan through a file I reviewed by hand, and the 129 listings that could not be placed were dropped rather than guessed. What remained were 1,180 listings I could trust.
+
+**Choosing the harder test.** A random train/test split puts houses from the same neighbourhood, often the same development, on both sides, which flatters the model. The app is used in areas with almost no data, so I tested it that way: spatial cross-validation, where every test fold holds kecamatan the model has never seen, with the same folds for every model. LightGBM reached 25.6% mean error (19.5% for the typical house), against 46.1% for the price-per-m² rule of thumb. The honest test turned out only 1.4 points harsher than a random split (24.2%), partly because removing the reposts had already stopped near-identical houses from sitting on both sides.
+
+**When the ranges fell short.** The price ranges were meant to hold about 8 in 10 true prices; the raw quantile models held 68.7%. I widened them by a calibrated factor, then per kabupaten (Kota Yogyakarta needed 1.63×), and so the fix could not fool me, added a nested check that picks the widening on four folds and tests it on the fifth. Coverage reached 80.6%, and 79.9% in the honest check. Gunungkidul, with only six listings, still sits at 50%, and both the app and this README say so.
+
+**Letting go of my own idea.** I expected road markers like "Jl. Kaliurang km 8" to add street-level detail that kecamatan-level data lacks. I wrote a parser, found the marker in 109 listings (9.2%), and ran the same models and folds with and without it. Spatial error was 25.62% either way. The feature went; the parser stayed for analysis, and the decision is documented instead of becoming an app input that would help fewer than 1 in 10 houses.
+
+**Facing the calendar.** The data is from 2024, but the app is used in 2026. To see how far off the model is today without tuning anything on the answer, I built a hook for a published city-wide price index that is never fitted to data, then collected 30 current listings, ran them through the same cleaning rules and scored them. Error rose to 32.8% with almost no bias on average (median −6%), but the pattern was clear: cheap houses came out 20–37% too high and expensive ones about 30% too low. A single index factor cannot fix errors that pull in opposite directions, and that finding shapes what I would build next.
+
+The result is a three-page Streamlit app backed by 189 tests, with SHAP explanations and comparable listings behind every estimate.
+
 ---
 
 ## The app
@@ -190,67 +206,6 @@ Errors are larger and coverage is lower than in cross-validation (25.6% MAPE, 81
 6. **The most expensive houses are under-predicted** (> Rp 5 M: 44% MAPE in CV). `exp(log prediction)` is closer to a median than a mean, and there are few such listings.
 
 Estimates are for reference only and are not an official valuation. For buying, selling or financing decisions, consult a licensed appraiser (KJPP, Kantor Jasa Penilai Publik).
-
-## Project story (STAR)
-
-| | |
-|---|---|
-| **Situation** | Jogja house prices are hard to judge, and the only open data was 2,020 scraped Rumah123 listings from 2024: reposts, boarding houses, free-text locations, and no sale prices. |
-| **Task** | Build an end-to-end valuation app whose numbers I could defend: an estimate, an honest range, the reasons behind it, and similar listings. |
-| **Action** | Cleaned the data with a reason for every dropped row, mapped areas to official kecamatan, added OpenStreetMap features, compared three models under spatial cross-validation, calibrated quantile ranges, added SHAP explanations and comparables, and shipped a 3-page Streamlit app with 189 tests. |
-| **Result** | 25.6% MAPE (19.5% median) on kecamatan the model never saw, vs 46.1% for the baseline; ranges covering 80.6% of prices; and a check on 30 current 2026 listings that showed where the 2024 model now falls short. |
-
-Common interview questions, answered from this project:
-
-<details>
-<summary><b>Tell me about a time you worked with messy data.</b></summary>
-
-- **Situation:** The raw file had 2,020 listings. Many were the same house posted again, some were boarding houses or shops, and locations were free text such as "Kaliurang" or "Sleman, Sleman".
-- **Task:** Produce a clean table without silently guessing, because a wrong location would corrupt both the features and the test.
-- **Action:** Profiled every column first, then wrote one rule per problem, each with a named drop reason: near-duplicate reposts, kos, commercial and land listings, down-payment prices. Mapped area names to official kecamatan through a reviewed file, and dropped the 129 rows that could not be placed instead of guessing.
-- **Result:** 1,180 trustworthy listings, including 474 reposts removed (23.5% of the raw data). Removing the reposts is one reason the honest test scored only 1.4 points worse than the easy one.
-
-</details>
-
-<details>
-<summary><b>Tell me about a time you chose a harder but more honest approach.</b></summary>
-
-- **Situation:** A random train/test split puts houses from the same neighbourhood, often the same development, on both sides, which flatters the model.
-- **Task:** Measure accuracy the way the app is used, including in areas with almost no data.
-- **Action:** Used spatial cross-validation, grouping by kecamatan so each test fold holds areas the model never saw, and kept the same folds for every model. Reported random CV only as a comparison.
-- **Result:** LightGBM scored 25.6% MAPE on unseen kecamatan (24.2% on the random split), against 46.1% for the price-per-m² rule of thumb: a number I can stand behind in an interview.
-
-</details>
-
-<details>
-<summary><b>Tell me about a time your results were worse than expected.</b></summary>
-
-- **Situation:** The price ranges were meant to hold about 80% of true prices, but the raw quantile models held only 68.7%.
-- **Task:** Fix the ranges without hiding the problem or fooling myself with the fix.
-- **Action:** Widened the ranges by a calibrated factor, then per kabupaten (Kota Yogyakarta needed 1.63×), and added a nested check that chooses the widening on 4 folds and tests it on the 5th.
-- **Result:** 80.6% coverage, 79.9% in the honest nested check. Gunungkidul, with only 6 listings, still sits at 50%, and the app and README say so rather than hide it.
-
-</details>
-
-<details>
-<summary><b>Tell me about a time you dropped your own idea.</b></summary>
-
-- **Situation:** I expected road markers like "Jl. Kaliurang km 8" to add street-level detail the kecamatan-level data lacks.
-- **Task:** Decide with evidence, not attachment.
-- **Action:** Wrote a parser, found the marker in 109 listings (9.2%), and ran an ablation with the same models and folds, with and without the feature.
-- **Result:** Spatial MAPE was 25.62% either way, so I dropped the feature, kept the parser for analysis, and documented the decision instead of adding app inputs that would help fewer than 1 in 10 houses.
-
-</details>
-
-<details>
-<summary><b>Tell me about a time you dealt with outdated data.</b></summary>
-
-- **Situation:** The data is from 2024, but the app is used in 2026.
-- **Task:** Find out how far off the model is today, without tuning anything on the answer.
-- **Action:** Built a hook for a published city-wide price index that is never fitted to data, then collected 30 current listings, validated them against the same cleaning rules, and scored them.
-- **Result:** 32.8% MAPE with almost no bias on average (median −6%), but a clear pattern: cheap houses estimated 20–37% too high, expensive ones about 30% too low. That showed a single index factor could not fix the error, which shaped what I would build next.
-
-</details>
 
 ## How to run locally
 
